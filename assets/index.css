@@ -139,3 +139,6 @@ body{
 .questions__item:target .question h6{
   color: var(--Very-dark-desaturated-blue);
 }
+.questions__item:target .question span{
+  transform: rotate(180deg);
+}
