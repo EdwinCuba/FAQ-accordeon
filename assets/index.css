@@ -21,9 +21,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+button{
+  border: 0;
+  outline: none;
+  background: transparent;
+}
 html{
   font-size: 62.5%;
   font-family: 'Kumbh Sans', sans-serif;
+  scroll-behavior: smooth;
 }
 body{
   width: 100%;
@@ -38,8 +44,9 @@ body{
 }
 .container{
   width: 85%;
-  height: 510px;
-  margin: 0 auto;
+  max-width: 950px;
+  height: 530px;
+  margin: 100px auto;
   background: #fff;
   position: relative;
   border-radius: 30px;
@@ -49,7 +56,6 @@ body{
   width: 100%;
   margin: 0 auto;
   position: absolute;
-  left: 10px;
   top: -110px;
 }
 .container__img--illustration{
@@ -61,9 +67,13 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  left: calc(50% - 148px);
 }
 .container__img--illustration::after{
   content: url('./static/bg-pattern-mobile.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: absolute;
   bottom: -20px;
   left: 30px;
@@ -85,12 +95,12 @@ body{
 }
 .questions{
   width: 100%;
-  
 }
 .questions__item{
   width: 100%;
   position: relative;
   margin-top: 15px;
+  cursor: pointer;
 }
 .questions__item::after{
   content: '';
@@ -128,17 +138,64 @@ body{
   margin-top: 10px;
   font-size: 1.2rem;
   font-weight: 400;
+  text-align: left;
   color: var(--Dark-grayish-blue);
   transition: max-height .5s ease;
 }
-.questions__item:target .answer{
+.questions__item:hover .question h6{
+  color: var(--Soft-red);
+}
+.questions__item:focus .answer{
   max-height: 50px;
   height: 40px;
   /* padding-bottom: 10px; */
-} 
-.questions__item:target .question h6{
+}
+.questions__item:focus .question h6{
   color: var(--Very-dark-desaturated-blue);
 }
-.questions__item:target .question span{
+.questions__item:focus .question span{
   transform: rotate(180deg);
+}
+
+@media screen and (min-width: 1024px){
+  .containertest{
+    max-width: 950px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    overflow: hidden;
+  }
+  .container__img{
+    position: relative;
+    top: 0;
+    left: -135px;
+  }
+  .container__img--illustration{
+    width: 472px;
+    height: 359px;
+    background-image: url('./static/illustration-woman-online-desktop.svg');
+    left: 0;
+  }
+  .container__img--illustration::after{
+    content: url('./static/bg-pattern-desktop.svg');
+    top: -365px;
+    left: -483px;
+  }
+  .container__img--box{
+    width: 191px;
+    display: block;
+    height: 184px;
+    position: absolute;
+    background-image: url('./static/illustration-box-desktop.svg');
+    top: calc(50% - 50px);
+    left: -92px;
+    z-index: 1;
+  }
+  .container__text{
+    padding: 0;
+  }
+  .container__text h3{
+    text-align: left;
+  }
 }
